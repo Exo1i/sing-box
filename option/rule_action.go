@@ -325,6 +325,8 @@ func (r *RejectActionOptions) UnmarshalJSON(bytes []byte) error {
 type RouteActionSniff struct {
 	Sniffer badoption.Listable[string] `json:"sniffer,omitempty" enum:"tls,http,quic,dns,stun,bittorrent,dtls,ssh,rdp,ntp"`
 	Timeout badoption.Duration         `json:"timeout,omitempty"`
+	// NekoBox: keep sniff_override_destination working after legacy inbound fields were removed
+	OverrideDestination bool `json:"override_destination,omitempty"`
 }
 
 type RouteActionResolve struct {
